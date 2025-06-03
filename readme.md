@@ -56,3 +56,42 @@ Assumindo que o jogo começou com player executando na coordenada [1,1]
 - Indo então para a próxima iteração
 
 ## Quarta iteração
+- É avaliado o estado atual do tabuleiro:
+![img_15.png](img_15.png)
+- Como neste momento ainda não há vencedores ou empate nenhum if irá entrar
+![img_16.png](img_16.png)
+- Como está sendo simulado a jogada do maximizer (X) é entrado no primeiro if:
+![img_17.png](img_17.png)
+- É atribuído ao valor de best o valor infinito negativo
+![img_18.png](img_18.png)
+- Posteriormente é iniciado o loop para estar preenchendo a próxima posição
+- Como nesta iteração o próximo espaço vazio é na coordenada [1, 2], na imagem abaixo:
+![img_19.png](img_19.png)
+- Após a atribuição:
+![img_20.png](img_20.png)
+- E seguindo é atribuído assim como nas outras iterações, o valor à variável best o maior valor entre o atual de best e minmax da jogada simulada do oponente (O)
+
+## Quinta iteração
+
+- é novamente avaliado o estado atual do tabuleiro:
+![img_21.png](img_21.png)
+- Nesta iteração ainda não há vencedor ou empate, então não entrando em nenhum if a seguir
+- Como esta iteração representa a simulação de jogada do oponente (O), o programa vai para o else na comparação
+![img_22.png](img_22.png)
+- é atribuído a variável best o número infinito positivo como na imagem acima
+- e depois é iniciado novamente o loop da jogada do oponente que tenta minimizar
+![img_23.png](img_23.png)
+- Como nas outras iterações é procurado a próxima posição em branco para preencher e simular a jogada de O
+- Nesta iteração, por exemplo, a próxima posição é a [2,0]
+![img_24.png](img_24.png)
+- Após a inserção o tabuleiro é atualizado e fica da seguinte maneira:
+![img_25.png](img_25.png)
+- e é atribuído à variável desta iteração best o menor valor entre a da própria variavél best e minimax da próxima jogada simulada de X
+
+## Resumo
+- O algoritmo fica neste processo até ter achado a melhor jogada no tabuleiro no momento após a primeira jogada.
+- Importante ressaltar que após terminarem as chamadas recursivas do minimax é limpada a posição para que nossa iteração de seus loops internos sejam testadas as possíveis jogadas de preenchimento.
+- E ponto importante é que na função find_best_move, ela testa dentro das opções que forem ainda válidas par jogar, as possíveis jogadas posteriores de cada jogador, sempre procurando maximizar os ganhos neste caso.
+- No final após a primeira jogada o algoritmo prevê que a melhor posição é a [0,0]
+- Como ainda é o começo do jogo, seu resultado ainda não surte muito efeito:
+![img_26.png](img_26.png)
